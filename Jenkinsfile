@@ -20,20 +20,20 @@ pipeline {
             }
         }
 
-        // stage('Push that newly updated kubernetes deployment file onto GitHub - the CD Part'){
-        //     steps{
-        //         script{
-        //             withCredentials([usernamePassword(credentialsId: 'github-account', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-        //             sh """
-        //                 git config user.email fitoni77@gmail.com
-        //                 git config user.name fitoni
-        //                 git add deploymentservice.yaml
-        //                 git commit -m "This is done remotely by Jenkins Job changemanifest: ${VERSION}"
-        //                 git push https://fitoni:${GIT_PASSWORD}@github.com/fitoni/bs4-admin-cd.git HEAD:main
-        //             """     
-        //             }                    
-        //         }
-        //     }
-        // } 
+        stage('Push that newly updated kubernetes deployment file onto GitHub - the CD Part'){
+            steps{
+                script{
+                    withCredentials([usernamePassword(credentialsId: 'jenkinsPushToGithub', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                        sh """
+                            git config user.email fitoni77@gmail.com
+                            git config user.name fitoni
+                            git add deploymentservice.yaml
+                            git commit -m "This is done remotely by Jenkins Job changemanifest: ${VERSION}"
+                            git push https://fitoni:${GIT_PASSWORD}@github.com/fitoni/bs4-admin-cd.git HEAD:main
+                        """     
+                    }                    
+                }
+            }
+        } 
     }
 }
