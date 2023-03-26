@@ -13,7 +13,7 @@ pipeline {
                 script{                    
                     sh """
                         cat deploymentservice.yaml
-                        sed -i 's+fitoni/bs4-admin-cd.*+fitoni/bs4-admin-cd:${VERSION}+g' deploymentservice.yaml
+                        sed -i 's+fitoni/gitops.*+fitoni/gitops:${VERSION}+g' deploymentservice.yaml
                         cat deploymentservice.yaml
                     """                       
                 }
