@@ -30,7 +30,7 @@ pipeline {
                         git config user.name fitoni
                         git add deploymentservice.yaml
                         git commit -m "This is done remotely by Jenkins Job changemanifest: ${VERSION}"
-                        git push https://github.com/fitoni/bs4-admin-cd.git HEAD:main
+                        git git push -u origin main
                         """
                     }               
                 }
