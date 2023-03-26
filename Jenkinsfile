@@ -28,8 +28,8 @@ pipeline {
                         git config user.email fitoni77@gmail.com
                         git config user.name fitoni
                         git add deploymentservice.yaml
-                        git commit -m "Done by Jenkins Job changemanifest: ${VERSION}"
-                        git push https://fitoni:${GIT_PASSWORD}@github.com/fitoni/bs4-admin-cd.git HEAD:main
+                        git commit -m "This is done by Jenkins Job changemanifest: ${VERSION}"
+                        git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/bs4-admin-cd.git HEAD:main
                     """               
                     }
                 }
