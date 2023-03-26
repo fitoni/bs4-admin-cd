@@ -23,11 +23,11 @@ pipeline {
         stage('Push that newly updated kubernetes deployment file onto GitHub - the CD Part'){
             steps{
                 script{
-                    withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                    withCredentials([usernamePassword(credentialsId: 'jenkinsPushToGithub', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                     sh """
                         git config user.email fitoni77@gmail.com
                         git config user.name fitoni
-                        git add .
+                        git add deploymentservice.yaml
                         git commit -m "Done by Jenkins Job changemanifest: ${VERSION}"
                         git push https://fitoni:${GIT_PASSWORD}@github.com/fitoni/bs4-admin-cd.git HEAD:main
                     """               
