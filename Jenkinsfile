@@ -24,8 +24,7 @@ pipeline {
             steps{
                 script{
                     
-                    withCredentials([gitUsernamePassword(credentialsId: 'jenkinsPullFromGithub', gitToolName: 'Default')]) {
-                        sh ""
+                    withCredentials([gitUsernamePassword(credentialsId: 'jenkinsPullFromGithub', gitToolName: 'Default')]) {                        
                         sh """
                         git config user.email fitoni77@gmail.com
                         git config user.name fitoni
