@@ -31,6 +31,7 @@ pipeline {
                         git commit -m "Done by Jenkins Job changemanifest: ${VERSION}"
                         git push https://fitoni:${GIT_PASSWORD}@github.com/fitoni/bs4-admin-cd.git HEAD:main
                     """               
+                    }
                 }
             }
         } 
