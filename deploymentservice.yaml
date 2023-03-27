@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: bs4-admin-app
-          image: fitoni/gitops:30
+          image: fitoni/gitops:31
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080 # The port that the container is running on in the cluster
